@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("hoverME").addEventListener("mouseout", mouseOut);
 
     function mouseOver() {
-        document.getElementById("hoverME").style.color = "red";
+        document.getElementById("hoverME").style.backgroundColor = "red";
     }
     function mouseOut() {
-        document.getElementById("hoverME").style.color = "black";
+        document.getElementById("hoverME").style.backgroundColor = "hotpink";
     }
     // End Objective 3.
 
@@ -34,8 +34,32 @@ document.addEventListener("DOMContentLoaded", function () {
     paraRandom.addEventListener('click', function () {
         paraRandom.style.color = getRandomColor();
     });
+    //End of Objective 4. See below for rand function
 
-    //End of Objective 5. See below for rand function
+    //Objective 5
+    let nameDiv = document.getElementById("nameHere")
+    let nameBtn = document.querySelector("#addName");
+    nameBtn.addEventListener("click", function () {
+        let span = document.createElement("span");
+        span.style.float = "left";
+        span.innerText = "Tarrin Jenkins";
+        span.style.width = "100vw"
+        nameDiv.appendChild(span)
+        // End of Objective 5
+    });
+    //can you do while instead of if? 
+    let friendBtn = document.querySelector('#friendBtn'); 
+    
+    friendBtn.addEventListener("click", function(){
+        if (counter < friends.length) {
+            let friendLi = document.createElement("li");
+            friendLi.innerText = friends[counter];
+            document.querySelector("ul").appendChild(friendLi);
+
+            counter ++;
+        }
+    })
+
 
 
 });
@@ -60,5 +84,13 @@ function getRandomColor() {
     return color;
 };
 
+let friends = [
+    "Bo",
+    "Lilly",
+    "Grace",
+    "Marley",
+    "Macey",
+    "Dee-Dee",
+];
 
-
+let counter = 0; 
